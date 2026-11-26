@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<a class="text-link back" href="/daireler/{{ apartment.number }}/">← Daire detayına dön</a><section class="page-heading"><div><p class="eyebrow">DAİRE DETAYI</p><h1>Daire {{ apartment.number }} · Düzenle</h1><p>Örnek sakin adını değiştirin.</p></div></section>
+<section class="panel info edit-panel"><form method="post">{% csrf_token %}<label for="name">Ad soyad</label><input id="name" name="name" value="{{ apartment.name }}" maxlength="100" required>{% if error %}<p class="error">{{ error }}</p>{% endif %}<p class="muted">Bu değişiklik yalnızca mevcut demo oturumunda saklanır; gerçek kişi kaydı değildir.</p><div class="form-actions"><button type="submit" class="button">Kaydet</button><a class="button secondary" href="/daireler/{{ apartment.number }}/">Vazgeç</a></div></form></section>
+{% endblock %}

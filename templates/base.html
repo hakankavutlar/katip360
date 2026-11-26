@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ page_title }} | Apartman Yönetimi</title><link rel="stylesheet" href="/static/css/style.css"></head>
+<body>
+{% include "icons.html" %}
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="/"><span class="brand-icon"><svg class="icon"><use href="#i-building"/></svg></span><span>Yönetim<span class="brand-sub">Apartman paneli</span></span></a>
+  <div class="site-card"><span class="site-avatar">Ö</span><span><strong>Örnek Apartmanı</strong><small>Yönetim alanı</small></span><svg class="icon small"><use href="#i-chevron"/></svg></div>
+  <div class="nav-label">YÖNETİM</div>
+  <nav aria-label="Ana menü">
+  {% for item in menu_items %}<a href="{{ item.url }}" class="nav-link {% if active == item.key %}active{% endif %}" {% if active == item.key %}aria-current="page"{% endif %}><svg class="icon"><use href="#i-{{ item.icon }}"/></svg><span>{{ item.label }}</span></a>{% endfor %}
+  </nav>
+  <div class="sidebar-bottom"><div class="version"><span class="dot"></span> V0.1 · Taslak sürüm</div><div class="profile"><span class="avatar">Y</span><span><strong>Yönetici</strong><small>Demo hesap</small></span></div></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div class="crumb"><button type="button" class="menu-toggle" aria-label="Menüyü aç veya kapat" aria-controls="sidebar" aria-expanded="false" onclick="var open=document.body.classList.toggle('menu-open'); this.setAttribute('aria-expanded',open)"><svg class="icon"><use href="#i-menu"/></svg></button><span>Yönetim Paneli</span><span class="slash">/</span><strong>{{ page_title }}</strong></div><span class="demo-tag"><span class="dot"></span> Demo ortamı</span></header>
+<main>{% block content %}{% endblock %}</main>
+<footer>Yönetim paneli · Arayüz prototipi · Veriler temsilidir.</footer>
+</div></div>
+</body></html>

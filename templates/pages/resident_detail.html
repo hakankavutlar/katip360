@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<a class="text-link back" href="/daireler/">← Daire listesine dön</a><section class="page-heading"><div><p class="eyebrow">DAİRE DETAYI</p><h1>Daire {{ apartment.number }}</h1><p>{{ apartment.name }} · {{ apartment.role }}</p></div><a class="button" href="/daireler/{{ apartment.number }}/duzenle/">Düzenle</a></section>
+<div class="dashboard-grid"><section class="panel info"><h2>Sakin bilgileri</h2><dl><dt>Ad soyad</dt><dd>{{ apartment.name }}</dd><dt>Kayıt türü</dt><dd>{{ apartment.role }}</dd><dt>Daire numarası</dt><dd>{{ apartment.number }}</dd></dl></section><section class="panel info"><h2>Örnek borç özeti</h2><div class="detail-balance">{{ apartment.debt_text }}</div><span class="chip {{ apartment.tone }}">{{ apartment.status }}</span><p>Bu tutar örnek veridir. Kişiye özel ekstre ve tahsilat detayları sonraki sürümde geliştirilecek.</p><a class="text-link" href="/borclar/">Borçlar sayfası →</a></section></div>
+{% endblock %}
